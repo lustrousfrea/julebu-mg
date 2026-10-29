@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- 加入分组 -->
+      <section id="join" hidden>
+        <h1>加入分组</h1>
+        <p class="sub">粘贴号主给你的邀请串，或分别填写。</p>
+        <label>邀请串（推荐）</label>
+        <input id="invite" placeholder="https://....workers.dev#ABCD2345" />
+        <p class="or">— 或 —</p>
+        <label>服务器地址</label>
+        <input id="serverUrl" placeholder="https://xxx.workers.dev" />
+        <label>分组代码</label>
+        <input id="code" placeholder="ABCD2345" />
+        <label>你的昵称</label>
+        <input id="nickname" placeholder="方便大家知道是谁在用" />
+        <p class="err" id="joinErr"></p>
+        <button class="primary block" id="joinBtn">加入</button>
+      </section>
+
+      <!-- 状态列表 -->
+      <section id="main" hidden>
+        <header>
+          <div>
+            <h1 id="groupName">—</h1>
+            <span class="muted" id="meName"></span>
+          </div>
+          <button class="icon" id="refreshBtn" title="刷新">↻</button>
+        </header>
+
+        <div id="list"></div>
+
+        <div class="footer">
+          <label class="toggle">
+            <input type="checkbox" id="autoLogout" />
+            <span>关掉所有句乐部页面后自动退出登录</span>
+          </label>
+          <div class="footer-btns">
+            <button id="logoutBtn">用完退出</button>
+            <button class="link" id="leaveBtn">退出分组</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="loading" class="center muted">加载中…</div>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+    <script src="popup.js"></script>
+  </body>
+</html>

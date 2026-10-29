@@ -1,0 +1,22 @@
+# 推送 v* 标签时，把 extension 文件夹打包成 extension.zip 挂到 Release，方便朋友下载安装。
+name: Package extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Zip extension
+        run: cd extension && zip -r ../extension.zip . && cd ..
+      - name: Attach to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: extension.zip

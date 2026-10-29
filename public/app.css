@@ -1,0 +1,388 @@
+:root {
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --border: #e3e6ea;
+  --text: #1c2024;
+  --muted: #6b7280;
+  --primary: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --green: #16a34a;
+  --amber: #d97706;
+  --red: #dc2626;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: filter 0.15s, background 0.15s;
+}
+button:hover {
+  filter: brightness(0.97);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+button.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+button.primary:hover {
+  background: var(--primary-dark);
+}
+button.danger {
+  color: var(--red);
+  border-color: #f3c2c2;
+}
+button.link {
+  border: none;
+  background: none;
+  color: var(--primary);
+  padding: 2px 4px;
+}
+button.sm {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+input,
+textarea {
+  font: inherit;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 10px 0 4px;
+}
+a {
+  color: var(--primary);
+}
+
+/* 登录页 */
+.login-wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+.login-card {
+  background: var(--panel);
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 360px;
+}
+.login-card h1 {
+  font-size: 20px;
+  margin: 0 0 4px;
+}
+.login-card p.sub {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+/* 布局 */
+.topbar {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topbar .brand {
+  font-weight: 600;
+  font-size: 16px;
+}
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-right: auto;
+}
+.tabs button {
+  border: none;
+  background: none;
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.tabs button.active {
+  color: var(--primary);
+  background: #f3effe;
+  font-weight: 600;
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.toolbar h2 {
+  font-size: 17px;
+  margin: 0 auto 0 0;
+}
+
+/* 卡片表格 */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: left;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+th {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  background: #fafbfc;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+.row-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.muted {
+  color: var(--muted);
+}
+.mono {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+}
+.empty {
+  padding: 48px;
+  text-align: center;
+  color: var(--muted);
+}
+.chip {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: #eef0f3;
+  color: var(--muted);
+  margin: 1px 3px 1px 0;
+}
+
+/* 状态点 */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.dot.on {
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+.dot.idle {
+  background: var(--amber);
+}
+.dot.off {
+  background: #c7cbd1;
+}
+.dot.lost {
+  box-sizing: border-box;
+  border: 2px solid var(--amber);
+}
+.status-lost {
+  color: var(--amber);
+}
+.status-on {
+  color: var(--green);
+  font-weight: 600;
+}
+.status-idle {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+/* 弹窗 */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 50;
+}
+.modal {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow: auto;
+}
+.modal h3 {
+  margin: 0 0 16px;
+  font-size: 17px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+.checklist {
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+}
+.checklist label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 7px 8px;
+  border-radius: 6px;
+  color: var(--text);
+  cursor: pointer;
+}
+.checklist label:hover {
+  background: #f6f4fe;
+}
+.checklist input {
+  width: auto;
+}
+.code-box {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-align: center;
+  background: #f3effe;
+  color: var(--primary-dark);
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* 提示条 */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1c2024;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.toast.err {
+  background: var(--red);
+}
+.err-text {
+  color: var(--red);
+  font-size: 13px;
+  min-height: 18px;
+  margin-top: 8px;
+}
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .hide-sm {
+    display: none;
+  }
+  th.hide-sm,
+  td.hide-sm {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f10;
+    --panel: #1a1b1e;
+    --border: #2c2e33;
+    --text: #e8eaed;
+    --muted: #9aa0a6;
+  }
+  th {
+    background: #1f2023;
+  }
+  input,
+  textarea {
+    background: #242528;
+    color: var(--text);
+  }
+  .chip {
+    background: #2c2e33;
+  }
+  .tabs button.active {
+    background: #2a2440;
+  }
+  .checklist label:hover {
+    background: #242134;
+  }
+  .code-box {
+    background: #2a2440;
+    color: #c4b5fd;
+  }
+}

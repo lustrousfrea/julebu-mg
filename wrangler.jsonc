@@ -1,0 +1,32 @@
+{
+  // Cloudflare Worker 配置。
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "julebu-mg",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-11-06",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // 管理后台的静态页面（public/ 目录）由 Worker 一起托管。
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./public"
+  },
+
+  // D1 数据库。故意不写 database_id：首次部署时 wrangler 会按 database_name 自动创建，
+  // 之后的部署会找回同一个数据库，不会重建。表结构在 Worker 首次请求时自动创建。
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "julebu_mg_db",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  "observability": {
+    "enabled": true
+  }
+
+  // Secret（不要写在这里，用 `wrangler secret put` 或部署面板设置，见 .dev.vars.example）：
+  //   ADMIN_PASSWORD   —— 管理后台登录密码
+  //   ENCRYPTION_KEY   —— 32 位以上的随机字符串，用于加密保存的账号密码，部署后不要再改
+}
