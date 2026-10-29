@@ -1,0 +1,256 @@
+:root {
+  --bg: #ffffff;
+  --text: #1c2024;
+  --muted: #6b7280;
+  --border: #e3e6ea;
+  --primary: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --green: #16a34a;
+  --amber: #d97706;
+  --red: #dc2626;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  width: 340px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text);
+}
+section {
+  padding: 16px;
+}
+h1 {
+  font-size: 16px;
+  margin: 0;
+}
+.sub {
+  color: var(--muted);
+  margin: 4px 0 14px;
+  font-size: 13px;
+}
+.or {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 12px 0 4px;
+}
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin: 10px 0 4px;
+}
+input[type="text"],
+input:not([type]) {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+  color: var(--text);
+}
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  padding: 7px 12px;
+  border-radius: 8px;
+}
+button:hover {
+  filter: brightness(0.97);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+button.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+button.primary:hover {
+  background: var(--primary-dark);
+}
+button.block {
+  width: 100%;
+  margin-top: 14px;
+  padding: 9px;
+}
+button.link {
+  border: none;
+  background: none;
+  color: var(--muted);
+  padding: 4px;
+}
+button.icon {
+  border: none;
+  background: none;
+  font-size: 18px;
+  padding: 2px 6px;
+  color: var(--muted);
+}
+.err {
+  color: var(--red);
+  font-size: 12px;
+  min-height: 16px;
+  margin: 8px 0 0;
+}
+.muted {
+  color: var(--muted);
+}
+.center {
+  text-align: center;
+  padding: 30px;
+}
+
+#main header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+#meName {
+  font-size: 12px;
+}
+
+/* 账号卡片 */
+.acc {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 12px;
+  margin-bottom: 8px;
+}
+.acc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.acc-name {
+  font-weight: 600;
+}
+.acc-phone {
+  color: var(--muted);
+  font-size: 12px;
+  font-family: ui-monospace, Consolas, monospace;
+}
+.status {
+  font-size: 12px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+.dot.on {
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+.dot.idle {
+  background: var(--amber);
+}
+.dot.off {
+  background: #c7cbd1;
+}
+.dot.lost {
+  box-sizing: border-box;
+  border: 2px solid var(--amber);
+}
+.s-on {
+  color: var(--green);
+  font-weight: 600;
+}
+.s-idle,
+.s-lost {
+  color: var(--amber);
+  font-weight: 600;
+}
+.hint {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 3px;
+}
+.warn {
+  color: var(--red);
+  font-size: 11px;
+  margin-top: 4px;
+}
+.login-btn {
+  font-size: 12px;
+  padding: 5px 10px;
+  flex: none;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  padding-top: 12px;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 10px;
+  cursor: pointer;
+}
+.toggle input {
+  margin: 0;
+}
+.footer-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  background: #1c2024;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  max-width: 300px;
+  text-align: center;
+}
+.toast.err {
+  background: var(--red);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1b1e;
+    --text: #e8eaed;
+    --muted: #9aa0a6;
+    --border: #2c2e33;
+  }
+  input:not([type]),
+  input[type="text"] {
+    background: #242528;
+    color: var(--text);
+  }
+  button {
+    background: #242528;
+    color: var(--text);
+  }
+}
